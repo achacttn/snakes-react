@@ -1,0 +1,14 @@
+body {
+    background-color: rgba(20,20,20,0.9);
+    color: rgba(225,225,225,0.9);
+    margin: 0px;
+}
+
+.Snake {
+    width: 100%;
+}
+
+.SnakeHeader {
+    margin: 0 auto;
+    width: 200px;
+}
