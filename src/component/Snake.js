@@ -3,18 +3,19 @@ import './style/Snake.css';
 import Board from './Board.js'
 
 class Snake extends Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
-      board: {x:50, y:50},
-    }
+      boardX: 50,
+      boardY: 50,
+    };    
   }
 
   render() {
     return (
       <div className="Snake">
-        <h1 className="SnakeHeader">Snake in react</h1>
-        <Board />
+        <h1 className="SnakeHeader">SNAKES</h1>
+        <Board stateObj={this.state} />
       </div>
     );
   }
