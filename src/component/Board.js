@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import './style/Board.css';
 
 class Board extends Component {
-    constructor(props){
-        super(props);
+    // constructor(props){
+    //     super(props);
+    // }
 
-        console.log(this.props);
-    }
+    
 
     render(){
         this.boardGenerator = () => {
@@ -17,18 +17,17 @@ class Board extends Component {
                     dimArray[i].push(j);
                 }
             }
-            console.log( dimArray );
-            return dimArray
+            return dimArray;
         }
 
         return (
-            <div className="Board">
+            <div className="Board" tabIndex='0' onKeyDown={this.props.control}>
                 {
                     this.boardGenerator().map( (row, rowIndex) => {
-                        return <div key={rowIndex} className={rowIndex}>
+                        return <div key={rowIndex} className={rowIndex+' boardRow'}>
                             {
                                 row.map( (col, colIndex) => {
-                                    return <span key={colIndex} className={colIndex}> A </span>
+                                    return <div key={colIndex} className={colIndex+' boardColumn'}></div>
                                 } )
                             }
                         </div>

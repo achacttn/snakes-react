@@ -1,3 +1,21 @@
 .Board {
     background-color: rgb(1, 100, 67);
 }
+
+.boardRow {
+    background-color: black;
+}
+
+.boardColumn {
+    background-color: black;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 0.03px solid red;
+    margin: 0px;
+    padding: 0px;
+}
+
+.snakeBody {
+    background-color: orange;
+}
