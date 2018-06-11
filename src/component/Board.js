@@ -6,7 +6,13 @@ class Board extends Component {
     //     super(props);
     // }
 
-    
+    componentDidMount = () => {
+        this.generateSnake();
+    }
+
+    generateSnake = () => {
+        console.log(this.props.stateObj);
+    }
 
     render(){
         this.boardGenerator = () => {

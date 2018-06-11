@@ -3,7 +3,8 @@
 }
 
 .boardRow {
-    background-color: black;
+    background-color: inherit;
+    height: 20px;
 }
 
 .boardColumn {

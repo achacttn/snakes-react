@@ -8,7 +8,7 @@ class Snake extends Component {
     this.state = {
       boardX: 30,
       boardY: 30,
-      head: [null,null],
+      startCoord: [null,null],
       direction: '',
     };    
   }
@@ -23,7 +23,7 @@ class Snake extends Component {
     let xStart = Math.floor(this.state.boardX * Math.random());
     let yStart = Math.floor(this.state.boardY * Math.random());
     this.setState({
-      head: [xStart, yStart],
+      startCoord: [xStart, yStart],
       direction: directionStart
     })
   }
