@@ -8,7 +8,7 @@ class Snake extends Component {
     this.state = {
       boardX: 30,
       boardY: 30,
-      startCoord: [null,null],
+      snakebody: [],
       direction: '',
     };    
   }
@@ -23,7 +23,7 @@ class Snake extends Component {
     let xStart = Math.floor(this.state.boardX * Math.random());
     let yStart = Math.floor(this.state.boardY * Math.random());
     this.setState({
-      startCoord: [xStart, yStart],
+      snakebody: [xStart, yStart],
       direction: directionStart
     })
   }
@@ -42,9 +42,10 @@ class Snake extends Component {
   }
 
   render() {
+    
     return (
       <div className="Snake">
-        <h1 className="SnakeHeader">SNAKES</h1>
+        <h1 className="SnakeHeader">snek</h1>
         <Board stateObj={this.state} control={ (ev) => this.keyChecker(ev) } id="test"/>
       </div>
     );

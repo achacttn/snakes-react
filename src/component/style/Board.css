@@ -1,10 +1,13 @@
 .Board {
     background-color: rgb(1, 100, 67);
+    /* margin: 0 auto; */
 }
 
 .boardRow {
     background-color: inherit;
     height: 20px;
+    width: 601px;
+    margin: 0 auto;
 }
 
 .boardColumn {

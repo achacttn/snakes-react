@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import './style/Board.css';
 
-class Board extends Component {
+class Board extends PureComponent {
     // constructor(props){
     //     super(props);
     // }
 
     componentDidMount = () => {
-        this.generateSnake();
+        this.testProps();
     }
 
-    generateSnake = () => {
+    testProps = () => {
         console.log(this.props.stateObj);
     }
 
@@ -26,18 +26,34 @@ class Board extends Component {
             return dimArray;
         }
 
+        this.generateSnake = (r, c) => {
+            var pos = this.props.stateObj.snakebody;
+            var classToggle = 'boardColumn'
+            if( r === pos[0] && c === pos[1] ){
+                return classToggle + ' snakeBody'
+            } else {
+                return classToggle;
+            }
+        }
+
         return (
             <div className="Board" tabIndex='0' onKeyDown={this.props.control}>
                 {
                     this.boardGenerator().map( (row, rowIndex) => {
-                        return <div key={rowIndex} className={rowIndex+' boardRow'}>
-                            {
-                                row.map( (col, colIndex) => {
-                                    return <div key={colIndex} className={colIndex+' boardColumn'}></div>
-                                } )
-                            }
-                        </div>
-                    } )
+                        return (
+                            <div key={rowIndex} className={'boardRow'}>
+                                {
+                                    row.map( (col, colIndex) => {
+                                        return <div key={colIndex} className=
+                                        {
+                                            this.generateSnake(rowIndex, colIndex)
+                                        }
+                                        ></div>
+                                    } )
+                                }
+                            </div>
+                        )
+                    })
                 }
             </div>
         )
