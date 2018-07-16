@@ -7,13 +7,16 @@ class Board extends PureComponent {
     }
 
     componentDidMount = () => {
-        setInterval( this.movement, 500 )
+        setInterval( this.movement, 100 );
     }
-
 
     movement = () => {
         var pos = this.props.stateObj.snakebody;
+        var foodLoc = this.props.stateObj.food;
         var direction = this.props.stateObj.direction;
+        if( pos[0]===foodLoc[0] && pos[1]===foodLoc[1] ){
+            this.props.regenFood();
+        }
         switch (direction) {
             case 'ArrowLeft':
                 this.props.snakePos( pos[0], (pos[1]-1 + this.props.stateObj.boardX)%this.props.stateObj.boardX );
@@ -30,7 +33,7 @@ class Board extends PureComponent {
             default:
                 break;
         }
-        console.log('body square: ', pos, 'direction: ', direction);
+        // console.log('body square: ', pos, 'direction: ', direction);
     }
 
     render(){
@@ -47,11 +50,20 @@ class Board extends PureComponent {
 
         this.generateSnake = (r, c) => {
             var pos = this.props.stateObj.snakebody;
-            var classToggle = 'boardColumn'
-            if( r === pos[0] && c === pos[1] ){
-                return classToggle + ' snakeBody'
+            var snakeToggle = 'boardColumn';
+            if( r===pos[0] && c===pos[1] ){
+                return snakeToggle + ' snakeBody'
             } else {
-                return classToggle;
+                return snakeToggle;
+            }
+        }
+
+        this.generateFood = (r, c) => {
+            var foodLoc = this.props.stateObj.food;
+            if (r === foodLoc[0] && c === foodLoc[1]) {
+                return 'food';
+            } else {
+                return '';
             }
         }
 
@@ -63,11 +75,7 @@ class Board extends PureComponent {
                             <div key={rowIndex} className={'boardRow'}>
                                 {
                                     row.map( (col, colIndex) => {
-                                        return <div key={colIndex} className=
-                                        {
-                                            this.generateSnake(rowIndex, colIndex)
-                                        }
-                                        ></div>
+                                        return <div key={colIndex} className={this.generateSnake(rowIndex, colIndex)+' '+this.generateFood(rowIndex, colIndex)}></div>
                                     } )
                                 }
                             </div>
