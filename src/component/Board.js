@@ -7,7 +7,7 @@ class Board extends PureComponent {
     }
 
     componentDidMount = () => {
-        setInterval( this.movement, 100 );
+        setInterval( this.movement, this.props.stateObj.tickrate );
     }
 
     movement = () => {

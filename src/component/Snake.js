@@ -12,12 +12,16 @@ class Snake extends Component {
       direction: '',
       food: [],
       score: -1,
+      tickrate: 100,
+      ticks: 0,
+      memory: [],
     };    
   }
 
   componentDidMount = () => {
     this.randomStart();
     this.makeFood();
+    setInterval( ()=>{ this.setState({ ticks: this.state.ticks+1 }) } , this.state.tickrate )
   }
 
   randomStart = () => {
@@ -47,7 +51,18 @@ class Snake extends Component {
   }
 
   changeDirection = ( key ) => {
-    console.log( key );
+    if ((key === "ArrowLeft") && (this.state.direction === "ArrowRight")) {
+      return;
+    }
+    if ((key === "ArrowUp") && (this.state.direction === "ArrowDown")) {
+      return;
+    }
+    if ((key === "ArrowRight") && (this.state.direction === "ArrowLeft")) {
+      return;
+    }
+    if ((key === "ArrowDown") && (this.state.direction === "ArrowUp")) {
+      return;
+    }
     this.setState({
       direction: key
     })
@@ -68,7 +83,7 @@ class Snake extends Component {
   render() {
     return (
       <div className="Snake">
-        <h1 className="SnakeHeader"><p className="headerInfo" id="gameTitleDisplay">SNEK</p><p className="headerInfo" id="gameScoreDisplay">score:{ this.state.score }</p></h1>
+        <h1 className="SnakeHeader"><p className="headerInfo" id="gameTitleDisplay">SNEK</p><p className="headerInfo" id="gameScoreDisplay">score:{ this.state.score }</p><p className="headerInfo">ticks:{ this.state.ticks }</p></h1>
         <Board stateObj={this.state} snakePos={ (r,c) => this.updatePos(r,c) } control={ (ev) => this.keyChecker(ev) } regenFood={()=>this.makeFood() } id="gameBoard"/>
       </div>
     );
