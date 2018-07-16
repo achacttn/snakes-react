@@ -1,6 +1,6 @@
 body {
-    background-color: rgba(20,20,20,0.9);
-    color: rgba(225,225,225,0.9);
+    background-color: rgba(206, 199, 175, 1.0);
+    color: rgb(1,100,167);
     margin: 0px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
@@ -12,4 +12,14 @@ body {
 .SnakeHeader {
     margin: 20px auto;
     width: 200px;
+}
+
+.headerInfo {
+    display: inline;
+    margin: 0 auto;
+    padding: 0 70px;
+}
+
+#gameTitleDisplay {
+    color: rgb(66, 124, 39);
 }

@@ -10,6 +10,7 @@ class Snake extends Component {
       boardY: 30,
       snakebody: [],
       direction: '',
+      score: 0,
     };    
   }
 
@@ -35,6 +36,12 @@ class Snake extends Component {
     })
   }
 
+  updatePos = (r,c) => {
+    this.setState({
+      snakebody: [r,c]
+    })
+  }
+
   keyChecker = (ev) => {
     if ( ev.key==='ArrowLeft' || ev.key==='ArrowRight' || ev.key==='ArrowUp' || ev.key==='ArrowDown' ){
       this.changeDirection( ev.key );
@@ -42,11 +49,11 @@ class Snake extends Component {
   }
 
   render() {
-    
+
     return (
       <div className="Snake">
-        <h1 className="SnakeHeader">snek</h1>
-        <Board stateObj={this.state} control={ (ev) => this.keyChecker(ev) } id="test"/>
+        <h1 className="SnakeHeader"><p className="headerInfo" id="gameTitleDisplay">SNEK</p><p className="headerInfo" id="gameScoreDisplay">score:{ this.state.score }</p></h1>
+        <Board stateObj={this.state} snakePos={ (r,c) => this.updatePos(r,c) } control={ (ev) => this.keyChecker(ev) } id="gameBoard"/>
       </div>
     );
   }
