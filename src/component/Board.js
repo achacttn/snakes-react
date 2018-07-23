@@ -2,11 +2,14 @@ import React, { PureComponent } from 'react';
 import './style/Board.css';
 
 class Board extends PureComponent {
-    constructor(props){
-        super(props);
-    }
+    // constructor(props){
+    //     super(props);
+    // }
 
     componentDidMount = () => {
+
+
+
         setInterval( this.movement, this.props.stateObj.tickrate );
     }
 
@@ -68,7 +71,10 @@ class Board extends PureComponent {
         }
 
         return (
-            <div className="Board" tabIndex='0' onKeyDown={this.props.control}>
+
+
+
+            <div className="Board" tabIndex='0' onKeyDown={this.props.control} onLoad={() => this.refs.item.focus()}>
                 {
                     this.boardGenerator().map( (row, rowIndex) => {
                         return (
