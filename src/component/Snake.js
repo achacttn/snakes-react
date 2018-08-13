@@ -38,13 +38,7 @@ class Snake extends Component {
   }
 
   makeFood = () => {
-    // let xFoodArr = Array.from({length: this.state.boardX}, (a,i)=> i!==this.state.snakebody[0]? i : (i+15)%this.state.boardX );
-    // let xFood = Math.floor(xFoodArr.length*Math.random());
-
-    // let yFoodArr = Array.from({length: this.state.boardY}, (a,i)=> i!==this.state.snakebody[1]? i : (i+15)%this.state.boardY );
-    // let yFood = Math.floor(yFoodArr.length*Math.random());
     this.setState({
-      // food: [xFood, yFood]
       food: [ Math.floor(this.state.boardX * Math.random()), Math.floor(this.state.boardY * Math.random()) ],
       score: this.state.score+1
     })

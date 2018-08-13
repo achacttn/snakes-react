@@ -7,9 +7,9 @@ class Board extends PureComponent {
     // }
 
     componentDidMount = () => {
-
-
-
+        // setInterval for movement funciton
+        // divide movement function into food collision check & actual movement
+        // clearInterval for a pause function
         setInterval( this.movement, this.props.stateObj.tickrate );
     }
 
@@ -61,7 +61,7 @@ class Board extends PureComponent {
             }
         }
 
-        this.generateFood = (r, c) => {
+        this.generateFoodLocation = (r, c) => {
             var foodLoc = this.props.stateObj.food;
             if (r === foodLoc[0] && c === foodLoc[1]) {
                 return 'food';
@@ -69,10 +69,7 @@ class Board extends PureComponent {
                 return '';
             }
         }
-
         return (
-
-
 
             <div className="Board" tabIndex='0' onKeyDown={this.props.control} onLoad={() => this.refs.item.focus()}>
                 {
@@ -81,7 +78,7 @@ class Board extends PureComponent {
                             <div key={rowIndex} className={'boardRow'}>
                                 {
                                     row.map( (col, colIndex) => {
-                                        return <div key={colIndex} className={this.generateSnake(rowIndex, colIndex)+' '+this.generateFood(rowIndex, colIndex)}></div>
+                                        return <div key={colIndex} className={this.generateSnake(rowIndex, colIndex)+' '+this.generateFoodLocation(rowIndex, colIndex)}></div>
                                     } )
                                 }
                             </div>
