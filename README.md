@@ -2,7 +2,11 @@ Snake in react!
 
 [Demo link](https://achacttn.github.io/snakesss)
 
-Changes:
+Recent updates:
+- food no longer persists for a tick (or render frame) upon collision
+    = food generating function is called when the snake will collide with it on the next tick
+
+Todo:
 - snake body length grow
     = look at food funciton first maybe
     = storing body state
