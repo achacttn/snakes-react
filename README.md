@@ -8,7 +8,7 @@ Recent updates:
 
 Todo:
 - snake body length grow
-    = look at food funciton first maybe
+    = look at food function first maybe
     = storing body state
 - pause function
     = clearinterval of the tick

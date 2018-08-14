@@ -17,12 +17,6 @@ class Board extends PureComponent {
         var pos = this.props.stateObj.snakebody;
         var foodLoc = this.props.stateObj.food;
         var direction = this.props.stateObj.direction;
-        // FIX food's continued persistence upon collision
-        // must check whether snake's position will be at the food's
-        // location on the next tick, given direction
-        // if( pos[0]===foodLoc[0] && pos[1]===foodLoc[1] ){
-        //     this.props.regenFood();
-        // }
         switch (direction) {
             case 'ArrowLeft':
                 this.props.snakePos( pos[0], (pos[1]-1 + this.props.stateObj.boardX)%this.props.stateObj.boardX );
