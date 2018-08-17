@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './style/Snake.css';
-import Board from './Board.js'
+import Board from './Board.js';
 
 class Snake extends Component {
   constructor(props){
@@ -12,7 +12,7 @@ class Snake extends Component {
       direction: '',
       food: [],
       score: -1,
-      tickrate: 100,
+      tickrate: 1000,
       ticks: 0,
       memory: [],
     };    

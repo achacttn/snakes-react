@@ -60,14 +60,9 @@ class Board extends PureComponent {
             return dimArray;
         }
 
-        this.generateSnake = (r, c) => {``
+        this.generateSnake = (r, c) => {
             var pos = this.props.stateObj.snakebody;
-            var snakeToggle = 'boardColumn';
-            if( r===pos[0] && c===pos[1] ){
-                return snakeToggle + ' snakeBody'
-            } else {
-                return snakeToggle;
-            }
+            return 'boardColumn' + ( r===pos[0] && c===pos[1] ? ' snakeBody' : '' );
         }
 
         this.generateFoodLocation = (r, c) => {
